@@ -1,0 +1,6 @@
+data/dev.luancgs.TextEditor.desktop.in
+data/dev.luancgs.TextEditor.appdata.xml.in
+data/dev.luancgs.TextEditor.gschema.xml
+src/main.c
+src/texteditor-window.c
+src/texteditor-window.ui

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=texteditor
+Exec=texteditor
+Icon=dev.luancgs.TextEditor
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

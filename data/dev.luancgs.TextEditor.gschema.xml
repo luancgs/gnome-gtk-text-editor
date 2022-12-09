@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="texteditor">
+	<schema id="dev.luancgs.TextEditor" path="/dev/luancgs/TextEditor/">
+	</schema>
+</schemalist>
