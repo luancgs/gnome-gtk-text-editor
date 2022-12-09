@@ -29,6 +29,7 @@ struct _TexteditorWindow
   /* Template widgets */
   GtkHeaderBar *header_bar;
   GtkLabel *main_text_view;
+  GtkButton *open_button;
 };
 
 G_DEFINE_FINAL_TYPE(TexteditorWindow, texteditor_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -40,9 +41,14 @@ static void texteditor_window_class_init(TexteditorWindowClass *klass)
   gtk_widget_class_set_template_from_resource(widget_class, "/dev/luancgs/TextEditor/texteditor-window.ui");
   gtk_widget_class_bind_template_child(widget_class, TexteditorWindow, header_bar);
   gtk_widget_class_bind_template_child(widget_class, TexteditorWindow, main_text_view);
+  gtk_widget_class_bind_template_child(widget_class, TexteditorWindow, open_button);
 }
 
 static void texteditor_window_init(TexteditorWindow *self)
 {
   gtk_widget_init_template(GTK_WIDGET(self));
+
+  g_autoptr(GSimpleAction) open_action = g_simple_action_new("open", NULL);
+  g_signal_connect(open_action, "activate", G_CALLBACK(text_editor_window__open_file_dialog), self);
+  g_action_map_add_action(G_ACTION_MAP(self), G_ACTION(open_action));
 }
