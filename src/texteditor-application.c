@@ -34,10 +34,7 @@ TexteditorApplication *texteditor_application_new(const char *application_id, GA
 {
   g_return_val_if_fail(application_id != NULL, NULL);
 
-  return g_object_new(TEXTEDITOR_TYPE_APPLICATION,
-                      "application-id", application_id,
-                      "flags", flags,
-                      NULL);
+  return g_object_new(TEXTEDITOR_TYPE_APPLICATION, "application-id", application_id, "flags", flags, NULL);
 }
 
 static void texteditor_application_activate(GApplication *app)
@@ -98,4 +95,5 @@ static void texteditor_application_init(TexteditorApplication *self)
 {
   g_action_map_add_action_entries(G_ACTION_MAP(self), app_actions, G_N_ELEMENTS(app_actions), self);
   gtk_application_set_accels_for_action(GTK_APPLICATION(self), "app.quit", (const char *[]){"<primary>q", NULL});
+  gtk_application_set_accels_for_action(GTK_APPLICATION(self), "win.open", (const char *[]){"<primary>o", NULL});
 }
